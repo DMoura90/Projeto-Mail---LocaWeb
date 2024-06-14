@@ -37,7 +37,7 @@ import androidx.navigation.NavController
 import br.com.fiap.monitoramentodetemperatura.R
 import br.com.fiap.monitoramentodetemperatura.R.string.login
 import br.com.fiap.monitoramentodetemperatura.R.string.subtitle
-import br.com.fiap.monitoramentodetemperatura.R.string.web
+
 
 
 @Composable
