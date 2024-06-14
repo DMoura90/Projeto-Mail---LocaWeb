@@ -34,22 +34,17 @@ class MainActivity : ComponentActivity() {
                     NavHost(navController = controleGeral, startDestination = "login")
                     {
                         composable(route = "login") {
-                            LoginScreen(
-                                controleGeral
-                            )
+                            LoginScreen(controleGeral)
                         }
                         composable(route = "menu") {
-
                             MenuScreen(controleGeral)
                         }
                         composable(route = "historico") {
                             HistoricoScreen(controleGeral)
                         }
-                        composable(route = "temperatura") {
-
+                        composable(route = "Emails") {
                             EmailScreen(controleGeral)
                         }
-
                         composable(route="cadastre-se"){
 
                             CadastrarScreen(
