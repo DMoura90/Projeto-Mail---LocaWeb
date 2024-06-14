@@ -94,13 +94,15 @@ fun NovoEmailScreen(controleGeral: NavController){
             IconButton(
                 onClick = {
                     vibratePhone(context)
+                    controleGeral.navigate("Emails")
                           },
                 modifier = Modifier.size(30.dp)
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.keyboard_return_24),
                     contentDescription = "Ícone voltar",
-                    modifier = Modifier.size(30.dp)
+                    modifier = Modifier.size(30.dp),
+
                 )
             }
 

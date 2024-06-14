@@ -206,8 +206,7 @@ fun LoginScreen(controleGeral: NavController)
 
                     Button(
                         onClick = {
-//                            controleGeral.navigate("cadastre-se")
-                            controleGeral.navigate("novoEmail")
+                            controleGeral.navigate("cadastre-se")
                         },
                         modifier = Modifier
                             .height(30.dp)

@@ -61,6 +61,8 @@ fun SearchBar() {
             tint = Color.White,
             modifier = Modifier.padding(end = 8.dp)
         )
+
+
         Text(
             text = "Pesquisar emails",
             fontSize = 18.sp,
@@ -158,7 +160,7 @@ fun EmailItem(email: Email) {
 @Composable
 fun NewEmailButton(controleGeral: NavController) {
     Button(
-        onClick = { controleGeral.navigate("nova_tela") },
+        onClick = { controleGeral.navigate("novoEmail") },
         colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.cinza)),
         modifier = Modifier
             .padding(10.dp)
