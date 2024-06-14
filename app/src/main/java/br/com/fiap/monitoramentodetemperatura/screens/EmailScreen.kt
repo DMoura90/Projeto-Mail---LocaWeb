@@ -1,24 +1,18 @@
 package br.com.fiap.monitoramentodetemperatura.screens
 
-
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,119 +22,167 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.R
 
-
 @Composable
 fun EmailScreen(controleGeral: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.Black)
-
-    )
-    {
-
-     Card(modifier = Modifier
-         .size(400.dp, 70.dp)
-         .padding(8.dp)
-     ) {
-
-      Column {
-
-          Text(
-              text = stringResource(id = R.string.temp),
-              fontSize = 32.sp,
-              fontWeight = FontWeight.Bold,
-              color = Color.Red,
-              modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
-
-      }
-     }
-
-
+    ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .align(alignment = Alignment.Center)
-
+                .fillMaxHeight()
+                .padding(horizontal = 20.dp),
+            verticalArrangement = Arrangement.SpaceBetween
         ) {
+            // Barra de pesquisa
+            SearchBar()
 
-            Spacer(modifier = Modifier.height(100.dp))
+            // Lista de emails
+            EmailList()
 
-
-
-
-
-                Text(
-                    text = "Sensor 1",
-                    fontSize = 30.sp,
-                    color = Color.White,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                Text(
-                    text = "32°C",
-                    fontSize = 50.sp,
-                    color = Color.Red,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-
-
-
-
-
-                Text(
-                    text = "Sensor 2",
-                    fontSize = 30.sp,
-                    color = Color.White,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-
-                Spacer(modifier = Modifier.height(10.dp))
-
-                Text(
-                    text = "28°C",
-                    fontSize = 50.sp,
-                    color = Color.Yellow,
-                    modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
-                )
-
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-
-
-
-
-
+            // Botão "Novo"
+            NewEmailButton(controleGeral)
         }
-        Button(
-            onClick = {
-                controleGeral.navigate("menu")},
-            colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.cinza)),
-            modifier = Modifier
-                .align(alignment = Alignment.BottomCenter)
-                .padding(5.dp)
-        ){
-            Text(
-                text = "Voltar",
-                fontSize = 20.sp,
-                color = Color.Blue,
-                textAlign = TextAlign.Center,
-                )}
-
     }
 }
+
+@Composable
+fun SearchBar() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
+            contentDescription = "Voltar",
+            tint = Color.White,
+            modifier = Modifier.padding(end = 8.dp)
+        )
+        Text(
+            text = "Pesquisar emails",
+            fontSize = 18.sp,
+            color = Color.White,
+            modifier = Modifier.weight(1f)
+        )
+        Icon(
+            painter = painterResource(id = R.drawable.twotone_account_circle_24),
+            contentDescription = "Perfil",
+            tint = Color.White,
+            modifier = Modifier.padding(start = 8.dp)
+        )
+    }
+}
+
+@Composable
+fun EmailList() {
+    val emails = listOf(
+        Email("David Moura", "Challenge 1º semestre", "Conteúdo do email"),
+        Email("Claúdio Maciel", "Challenge 1º semestre", "Conteúdo do email"),
+        Email("Rodrigo Inacio", "Challenge 1º semestre", "Conteúdo do email"),
+        Email("Thomas Jefferson", "Challenge 1º semestre", "Conteúdo do email"),
+        Email("5º Membro (Oculto)", "Challenge 1º semestre", "Conteúdo do email")
+    )
+
+    LazyColumn(
+        modifier = Modifier
+            .padding(vertical = 16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        items(emails) { email ->
+            EmailItem(email)
+        }
+    }
+}
+
+@Composable
+fun EmailItem(email: Email) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        shape = RoundedCornerShape(8.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.baseline_person_24),
+                contentDescription = "Remetente",
+                tint = Color.Black,
+                modifier = Modifier.padding(end = 16.dp)
+            )
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(
+                    text = email.name,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black
+                )
+                Text(
+                    text = email.subject,
+                    fontSize = 14.sp,
+                    color = Color.Gray
+                )
+            }
+            Row(
+                modifier = Modifier.padding(start = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_outlined_flag_24),
+                    contentDescription = "Bandeira",
+                    tint = Color.Black,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+                Icon(
+                    painter = painterResource(id = R.drawable.sharp_delete_24),
+                    contentDescription = "Excluir",
+                    tint = Color.Black,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun NewEmailButton(controleGeral: NavController) {
+    Button(
+        onClick = { controleGeral.navigate("nova_tela") },
+        colors = ButtonDefaults.buttonColors(containerColor = colorResource(id = R.color.cinza)),
+        modifier = Modifier
+            .padding(10.dp)
+            .fillMaxWidth()
+    ) {
+        Text(
+            text = "Novo",
+            fontSize = 20.sp,
+            color = Color.White,
+            textAlign = TextAlign.Center
+        )
+    }
+}
+
+@SuppressLint("ModifierFactoryExtensionFunction")
+private fun padding(): Modifier {
+    TODO("Not yet implemented")
+}
+
+data class Email(val name: String, val subject: String, val content: String)
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun EmailScreenPreview() {
-
+    // Inicializando controleGeral com um objeto NavHostController
     EmailScreen(rememberNavController())
-
 }
