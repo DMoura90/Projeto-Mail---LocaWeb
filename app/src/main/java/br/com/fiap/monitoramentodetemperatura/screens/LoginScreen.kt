@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.R
 import br.com.fiap.monitoramentodetemperatura.R.string.login
 import br.com.fiap.monitoramentodetemperatura.R.string.subtitle
@@ -41,9 +42,8 @@ import br.com.fiap.monitoramentodetemperatura.R.string.subtitle
 
 
 @Composable
-fun LoginScreen(
-    controleGeral: NavController
-){
+fun LoginScreen(controleGeral: NavController)
+{
 
     var email by remember() {
         mutableStateOf("")
@@ -232,6 +232,6 @@ fun LoginScreen(
 @Composable
 fun LoginScreenPreview() {
 
-   // LoginScreen()
+    LoginScreen(rememberNavController())
 
 }

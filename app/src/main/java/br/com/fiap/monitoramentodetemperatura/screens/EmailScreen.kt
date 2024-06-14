@@ -39,7 +39,6 @@ fun EmailScreen(controleGeral: NavController) {
 
     )
     {
-
         Text(
             text = stringResource(id = R.string.temp),
             fontSize = 32.sp,
@@ -48,7 +47,6 @@ fun EmailScreen(controleGeral: NavController) {
             modifier = Modifier
                 .align(alignment = Alignment.TopCenter)
                 .padding(5.dp)
-
         )
 
         Column(
