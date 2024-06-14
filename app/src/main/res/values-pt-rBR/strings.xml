@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Monitor de Temperatura</string>
+
+    // Strings personalizadas para o inglês
+    // que será o idioma padrão da aplicação
+    <string name="login">Monitorar sensor de temperatura</string>
+    <string name="subtitle">Por Favor, digite suas informações</string>
+    <string name="email">digite seu E-mail</string>
+    <string name="password">digite sua senha</string>
+    <string name="enter">Entrar</string>
+    <string name="temp">Temperatura</string>
+    <string name="TituloCadastro">Cadastro</string>
+    <string name="nome">Digite seu Nome</string>
+    <string name="senha"> Digite sua senha</string>
+    <string name="confirmar"> digite novamente a senha</string>
+    <string name="botaoConfirmar">Confirmar</string>
+
+</resources>
