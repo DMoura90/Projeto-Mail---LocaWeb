@@ -17,6 +17,7 @@ import br.com.fiap.monitoramentodetemperatura.screens.HistoricoScreen
 import br.com.fiap.monitoramentodetemperatura.screens.LoginScreen
 import br.com.fiap.monitoramentodetemperatura.screens.MenuScreen
 import br.com.fiap.monitoramentodetemperatura.screens.EmailScreen
+import br.com.fiap.monitoramentodetemperatura.screens.NovoEmailScreen
 import br.com.fiap.monitoramentodetemperatura.ui.theme.MonitoramentoDeTemperaturaTheme
 
 class MainActivity : ComponentActivity() {
@@ -55,6 +56,10 @@ class MainActivity : ComponentActivity() {
                             CadastrarScreen(
                                 controleGeral
                             )
+                        }
+
+                        composable(route= "novoEmail"){
+                            NovoEmailScreen(controleGeral)
                         }
 
                     }
