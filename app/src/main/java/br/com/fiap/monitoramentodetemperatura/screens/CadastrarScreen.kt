@@ -87,7 +87,7 @@ fun CadastrarScreen(
                 text = stringResource(id = R.string.TituloCadastro),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Blue,
+                color = Color(color = 0xFFC20824),
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
 
             )
@@ -95,17 +95,11 @@ fun CadastrarScreen(
             Spacer(modifier = Modifier.height(40.dp))
 
 
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                colors = CardDefaults
-                    .cardColors(containerColor = Color.DarkGray)
 
-            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(32.dp)
+
                 ) {
                     
                     OutlinedTextField(
@@ -254,7 +248,7 @@ fun CadastrarScreen(
 
 
                 }
-            }
+
         }
     }
 

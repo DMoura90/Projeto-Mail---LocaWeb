@@ -49,7 +49,7 @@ fun MenuScreen(controleGeral: NavController) {
         ) {
             Button(
                 onClick = {
-                    controleGeral.navigate("Temperature")
+                    controleGeral.navigate("Emails")
                 },
                 colors = ButtonDefaults.buttonColors(Color.Black),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp)

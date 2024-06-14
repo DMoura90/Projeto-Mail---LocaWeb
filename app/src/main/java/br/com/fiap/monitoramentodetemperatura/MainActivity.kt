@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                         composable(route = "historico") {
                             HistoricoScreen(controleGeral)
                         }
-                        composable(route = "temperatura") {
+                        composable(route = "Emails") {
 
                             EmailScreen(controleGeral)
                         }
@@ -64,15 +64,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MonitoramentoDeTemperaturaTheme {
-
-
     }
 }

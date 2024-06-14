@@ -4,16 +4,14 @@ package br.com.fiap.monitoramentodetemperatura.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.R
 
 
@@ -39,20 +38,29 @@ fun EmailScreen(controleGeral: NavController) {
 
     )
     {
-        Text(
-            text = stringResource(id = R.string.temp),
-            fontSize = 32.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Red,
-            modifier = Modifier
-                .align(alignment = Alignment.TopCenter)
-                .padding(5.dp)
-        )
+
+     Card(modifier = Modifier
+         .size(400.dp, 70.dp)
+         .padding(8.dp)
+     ) {
+
+      Column {
+
+          Text(
+              text = stringResource(id = R.string.temp),
+              fontSize = 32.sp,
+              fontWeight = FontWeight.Bold,
+              color = Color.Red,
+              modifier = Modifier.align(alignment = Alignment.CenterHorizontally))
+
+      }
+     }
+
 
         Column(
             modifier = Modifier
-                .padding(20.dp)
-               // .align(alignment = Alignment.Center)
+                .fillMaxSize()
+                .align(alignment = Alignment.Center)
 
         ) {
 
@@ -60,14 +68,7 @@ fun EmailScreen(controleGeral: NavController) {
 
 
 
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                colors = CardDefaults
-                    .cardColors(containerColor = Color.DarkGray),
 
-
-                ) {
 
                 Text(
                     text = "Sensor 1",
@@ -88,17 +89,10 @@ fun EmailScreen(controleGeral: NavController) {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-            }
-
-            Spacer(modifier = Modifier.height(32.dp))
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                colors = CardDefaults
-                    .cardColors(containerColor = Color.DarkGray),
 
 
-                ) {
+
+
 
                 Text(
                     text = "Sensor 2",
@@ -119,7 +113,7 @@ fun EmailScreen(controleGeral: NavController) {
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-            }
+
 
 
 
@@ -145,6 +139,8 @@ fun EmailScreen(controleGeral: NavController) {
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-fun TemperaturaScreenPreview() {
+fun EmailScreenPreview() {
+
+    EmailScreen(rememberNavController())
 
 }
