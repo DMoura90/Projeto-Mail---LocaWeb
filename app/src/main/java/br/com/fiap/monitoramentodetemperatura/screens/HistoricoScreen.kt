@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.fiap.monitoramentodetemperatura.R
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun HistoricoScreen(controleGeral:NavController){
@@ -224,6 +225,6 @@ fun HistoricoScreen(controleGeral:NavController){
 @Composable
 fun HistoricoScreenPreview() {
 
-   // HistoricoScreen()
+    HistoricoScreen(rememberNavController())
 
 }

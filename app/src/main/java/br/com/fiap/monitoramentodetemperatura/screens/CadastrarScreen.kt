@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -34,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.R
 
 @Composable
@@ -87,7 +87,7 @@ fun CadastrarScreen(
                 text = stringResource(id = R.string.TituloCadastro),
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color.Blue,
+                color = Color(color = 0xFFC20824),
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
 
             )
@@ -95,17 +95,11 @@ fun CadastrarScreen(
             Spacer(modifier = Modifier.height(40.dp))
 
 
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                colors = CardDefaults
-                    .cardColors(containerColor = Color.DarkGray)
 
-            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(32.dp)
+
                 ) {
                     
                     OutlinedTextField(
@@ -254,7 +248,7 @@ fun CadastrarScreen(
 
 
                 }
-            }
+
         }
     }
 
@@ -264,6 +258,6 @@ fun CadastrarScreen(
 @Composable
 fun CadastrarScreenPreview() {
 
-    // CadastrarScreen()
+     CadastrarScreen(rememberNavController())
 
 }

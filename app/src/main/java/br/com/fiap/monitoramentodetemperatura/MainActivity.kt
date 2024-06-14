@@ -45,9 +45,11 @@ class MainActivity : ComponentActivity() {
                         composable(route = "historico") {
                             HistoricoScreen(controleGeral)
                         }
-                        composable(route = "Emails") {
+                        composable(route = "temperatura") {
+
                             EmailScreen(controleGeral)
                         }
+
                         composable(route="cadastre-se"){
 
                             CadastrarScreen(
