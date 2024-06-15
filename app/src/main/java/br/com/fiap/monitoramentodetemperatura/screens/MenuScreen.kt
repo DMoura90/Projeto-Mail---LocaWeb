@@ -78,6 +78,16 @@ fun MenuScreen(controleGeral: NavController) {
             ) {
                 Text(text = "Sair", fontSize = 20.sp, color = Color.Blue)
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = {
+                    controleGeral.navigate("emailRecebido")
+                },
+                colors = ButtonDefaults.buttonColors(Color.Black),
+                modifier = Modifier.size(width = 200.dp, height = 48.dp)
+            ) {
+                Text(text = "Email Recebido", fontSize = 20.sp, color = Color.Blue)
+            }
         }
     }
 }

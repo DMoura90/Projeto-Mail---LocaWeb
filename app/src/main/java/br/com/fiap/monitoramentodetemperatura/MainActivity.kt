@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.screens.CadastrarScreen
+import br.com.fiap.monitoramentodetemperatura.screens.EmailRecebidoScreen
 import br.com.fiap.monitoramentodetemperatura.screens.HistoricoScreen
 import br.com.fiap.monitoramentodetemperatura.screens.LoginScreen
 import br.com.fiap.monitoramentodetemperatura.screens.MenuScreen
@@ -55,6 +56,10 @@ class MainActivity : ComponentActivity() {
 
                         composable(route= "novoEmail"){
                             NovoEmailScreen(controleGeral)
+                        }
+
+                        composable(route = "emailRecebido"){
+                            EmailRecebidoScreen(controleGeral)
                         }
 
                     }
