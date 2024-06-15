@@ -28,7 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+//import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -109,15 +109,16 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
 
             OutlinedTextField(
                 value = "email@exemplo.com",
-                onValueChange = {
-                    De = it
-                },
+                readOnly = true,
+                onValueChange = {},
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(30.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.LightGray,
-                    unfocusedBorderColor = Color.Gray,
-                    unfocusedTextColor = Color.White
+                    unfocusedBorderColor = Color.LightGray,
+                    unfocusedTextColor = Color.White,
+                    focusedTextColor = Color.White
+
                 ),
                 placeholder = {
                     Text(text = "Seu E-mail")
@@ -142,15 +143,15 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
 
             OutlinedTextField(
                 value = "emaildestinatario@exemplo.com",
-                onValueChange = {
-                    Para = it
-                },
+                onValueChange = {},
+                readOnly = true,
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(30.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.LightGray,
-                    unfocusedBorderColor = Color.Gray,
-                    unfocusedTextColor = Color.White
+                    unfocusedBorderColor = Color.LightGray,
+                    unfocusedTextColor = Color.White,
+                    focusedTextColor = Color.White
                 ),
                 placeholder = {
                     Text(text = "E-mail do destinatário")
@@ -175,15 +176,15 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
 
             OutlinedTextField(
                 value = "Esse é um titulo de exemplo.",
-                onValueChange = {
-                    Titulo = it
-                },
+                onValueChange = {},
+                readOnly = true,
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(30.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.LightGray,
-                    unfocusedBorderColor = Color.Gray,
-                    unfocusedTextColor = Color.White
+                    unfocusedBorderColor = Color.LightGray,
+                    unfocusedTextColor = Color.White,
+                    focusedTextColor = Color.White
                 ),
                 placeholder = {
                     Text(text = "Assunto do E-mail")
@@ -211,17 +212,17 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
                 value = "Conteudo de Email.\nEsse é um exemplo de texto onde deve ficar o conteúdo do email recebido.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis laoreet hendrerit. In vel faucibus elit. Sed commodo ante sed tortor fermentum tempus. Fusce ullamcorper scelerisque lectus, id semper quam sollicitudin in. Cras at blandit lacus, vel facilisis arcu. Sed quis gravida sem. Maecenas finibus, tortor in tristique volutpat, ligula urna semper nulla, et egestas sem metus at nibh. In a consectetur erat. Etiam convallis ullamcorper nunc. Quisque ornare nulla at pellentesque imperdiet.\n" +
                         "\n" +
                         "Nullam lectus dolor, tincidunt eu suscipit sed, faucibus sit amet est. Donec eu diam urna. Proin eu augue luctus, tempor lorem nec, ultricies risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam luctus est in vehicula ultrices. Curabitur facilisis, elit in mollis vehicula, elit eros sagittis turpis, quis lobortis erat nibh cursus sapien.",
-                onValueChange = {
-                    corpoEmail = it
-                },
+                onValueChange = {},
+                readOnly = true,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(400.dp),
                 shape = RoundedCornerShape(30.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.LightGray,
-                    unfocusedBorderColor = Color.Gray,
-                    unfocusedTextColor = Color.White
+                    unfocusedBorderColor = Color.LightGray,
+                    unfocusedTextColor = Color.White,
+                    focusedTextColor = Color.White
 
                 ),
                 placeholder = {
