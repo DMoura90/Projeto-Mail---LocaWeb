@@ -49,14 +49,13 @@ fun MenuScreen(controleGeral: NavController) {
         ) {
             Button(
                 onClick = {
-                    controleGeral.navigate("Emails")
+                    controleGeral.navigate("Categorias")
                 },
                 colors = ButtonDefaults.buttonColors(Color.Black),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp)
             ) {
                 Text(
-                    text = stringResource(id = R.string.temp),
-                    fontSize = 20.sp, color = Color.Blue)
+                    text = "Categorias",fontSize = 20.sp, color = Color.Blue)
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(

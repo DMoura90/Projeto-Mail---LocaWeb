@@ -156,7 +156,7 @@ fun CategorizationScreen(navController: NavController) {
             Spacer(modifier = Modifier.width(8.dp))
 
             Button(
-                onClick = { /* ação de novo */ },
+                onClick = { navController.navigate("NovoEmail") },
                 modifier = Modifier.weight(1f),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFF555555)
@@ -208,10 +208,11 @@ fun CategorizationScreenPreview() {
     val navController = rememberNavController()
     NavHost(navController, startDestination = "categorias") {
         composable("categorias") { CategorizationScreen(navController) }
-        composable("todos") { /* tela de todos os emails */ }
-        composable("social") { /* tela de emails sociais */ }
-        composable("trabalho") { /* tela de emails de trabalho */ }
-        composable("bancos") { /* tela de emails de bancos */ }
-        composable("vagas_emp") { /* tela de emails de vagas de emprego */ }
+        composable("todos") { EmailScreen(navController) }
+        composable("social") { EmailScreen2(navController) }
+        composable("trabalho") { EmailScreen1(navController) }
+        composable("bancos") { EmailScreen3(navController) }
+        composable("vagas_emp") { EmailScreen4(navController) }
+        composable("novoEmail") { NovoEmailScreen(navController) }
     }
 }
