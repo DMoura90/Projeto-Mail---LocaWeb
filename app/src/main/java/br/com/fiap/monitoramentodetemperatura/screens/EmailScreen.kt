@@ -1,6 +1,5 @@
 package br.com.fiap.monitoramentodetemperatura.screens
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -173,11 +172,6 @@ fun NewEmailButton(controleGeral: NavController) {
             textAlign = TextAlign.Center
         )
     }
-}
-
-@SuppressLint("ModifierFactoryExtensionFunction")
-private fun padding(): Modifier {
-    TODO("Not yet implemented")
 }
 
 data class Email(val name: String, val subject: String, val content: String)
