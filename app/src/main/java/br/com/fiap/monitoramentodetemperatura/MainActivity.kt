@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                         composable(route = "Emails") {
                             EmailScreen(controleGeral)
                         }
-                        composable(route="cadastre-se"){
+                        composable(route="cadastrar"){
 
                             CadastrarScreen(
                                 controleGeral
