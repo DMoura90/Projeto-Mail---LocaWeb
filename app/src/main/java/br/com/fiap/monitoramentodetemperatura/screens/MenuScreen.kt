@@ -80,6 +80,25 @@ fun MenuScreen(controleGeral: NavController) {
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))
+                Button(
+                    onClick = {
+                        controleGeral.navigate("agendar_evento")
+                    },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xffFF1E1E)),
+                    shape = RoundedCornerShape(20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(48.dp)
+                        .padding(vertical = 1.dp)
+                ) {
+                    Text(
+                        text = "Calendário",
+                        fontSize = 20.sp,
+                        color = Color.Black
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(10.dp))
 
                 Button(
                     onClick = {

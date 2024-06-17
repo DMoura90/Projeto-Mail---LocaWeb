@@ -56,15 +56,15 @@ fun LoginScreen(controleGeral: NavController) {
                 .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            Text(
-                text = "Email LocaWeb",
-                fontSize = 35.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
-                color = Color.White
+            Image(
+                painter = painterResource(id = R.drawable.locaweb_logo), // Substitua pelo ID do seu logo
+                contentDescription = "Logo da LocaWeb",
+                modifier = Modifier
+                    .size(200.dp) // Ajuste o tamanho conforme necessário
+                    .align(alignment = Alignment.CenterHorizontally)
             )
 
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Column(
                 modifier = Modifier
@@ -94,7 +94,7 @@ fun LoginScreen(controleGeral: NavController) {
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Icon(
-                                    painter = painterResource(id = R.drawable.account_circle_24),
+                                    painter = painterResource(id = R.drawable.baseline_account_circle_24),
                                     contentDescription = "ícone de usuário genérico",
                                     modifier = Modifier.padding(
                                         end = 15.dp,
@@ -242,7 +242,7 @@ fun LoginScreen(controleGeral: NavController) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(100.dp))
 
             Column(
                 verticalArrangement = Arrangement.Bottom,
