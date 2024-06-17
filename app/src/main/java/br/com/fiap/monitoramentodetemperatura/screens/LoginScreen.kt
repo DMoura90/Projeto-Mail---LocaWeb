@@ -1,53 +1,24 @@
 package br.com.fiap.monitoramentodetemperatura.screens
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontSynthesis.Companion.Style
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -56,57 +27,22 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.R
-import br.com.fiap.monitoramentodetemperatura.R.string.login
-import br.com.fiap.monitoramentodetemperatura.R.string.subtitle
-
 
 @Composable
 fun LoginScreen(controleGeral: NavController) {
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var erroEmail by remember { mutableStateOf(false) }
+    var erroPassword by remember { mutableStateOf(false) }
+    var isFocusedEmail by remember { mutableStateOf(false) }
+    var isFocusedPassword by remember { mutableStateOf(false) }
 
-    var email by remember() {
-        mutableStateOf("")
-    }
-
-    var password by remember {
-        mutableStateOf("")
-    }
-
-    var erroEmail by remember {
-        mutableStateOf(false)
-    }
-
-    var erroPassoword by remember {
-        mutableStateOf(false)
-    }
-
-    val tamanhoMaximo = 8
-
-    val textColor = MaterialTheme.colorScheme.onBackground
-
-    var isFocusedEmail by remember {
-        mutableStateOf(false)
-    }
-
-    var isFocusedPassword by remember {
-        mutableStateOf(false)
-    }
-
-    val lineColor =
-        if (isFocusedEmail) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground.copy(
-            alpha = 0.5f
-        )
-
-    val lineColor1 =
-        if (isFocusedPassword) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground.copy(
-            alpha = 0.5f
-        )
-
-
-
+    val textColor = Color.White  // Cor do texto
+    val lineColor = if (isFocusedEmail) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
+    val lineColor1 = if (isFocusedPassword) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
 
     Box(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painter = painterResource(id = R.drawable.fundologin),
@@ -119,8 +55,6 @@ fun LoginScreen(controleGeral: NavController) {
                 .padding(16.dp)
                 .fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly
-
-
         ) {
             Text(
                 text = "Email LocaWeb",
@@ -128,7 +62,6 @@ fun LoginScreen(controleGeral: NavController) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.align(alignment = Alignment.CenterHorizontally),
                 color = Color.White
-
             )
 
             Spacer(modifier = Modifier.height(40.dp))
@@ -138,7 +71,6 @@ fun LoginScreen(controleGeral: NavController) {
                     .fillMaxWidth()
                     .padding(32.dp)
             ) {
-
                 BasicTextField(
                     value = email,
                     onValueChange = {
@@ -153,7 +85,6 @@ fun LoginScreen(controleGeral: NavController) {
                         .onFocusChanged { focusState ->
                             isFocusedEmail = focusState.isFocused
                         },
-
                     textStyle = TextStyle(color = textColor, fontSize = 18.sp),
                     singleLine = true,
                     cursorBrush = SolidColor(Color.White),
@@ -219,7 +150,6 @@ fun LoginScreen(controleGeral: NavController) {
                         .onFocusChanged { focusState ->
                             isFocusedPassword = focusState.isFocused
                         },
-
                     textStyle = TextStyle(color = textColor, fontSize = 18.sp),
                     singleLine = true,
                     cursorBrush = SolidColor(Color.White),
@@ -249,7 +179,6 @@ fun LoginScreen(controleGeral: NavController) {
                                     color = if (placeholderPassword.isNotEmpty()) Color.Gray else Color.Transparent
                                 )
                                 innerTextFieldPassword()
-
                             }
                             Box(
                                 modifier = Modifier
@@ -260,7 +189,7 @@ fun LoginScreen(controleGeral: NavController) {
                         }
                     }
                 )
-                if (erroPassoword) {
+                if (erroPassword) {
                     Text(
                         modifier = Modifier.fillMaxWidth(),
                         text = "Não esqueça a senha",
@@ -271,24 +200,24 @@ fun LoginScreen(controleGeral: NavController) {
                 }
 
                 Spacer(modifier = Modifier.height(32.dp))
+
                 Column {
                     Button(
                         onClick = {
                             if (email.isEmpty() || password.isEmpty()) {
                                 erroEmail = true
-                                erroPassoword = true
-                            } else
+                                erroPassword = true
+                            } else {
                                 controleGeral.navigate("menu")
-
+                            }
                         },
                         colors = ButtonDefaults.buttonColors(Color(0xffFF1E1E)),
                         shape = RoundedCornerShape(20.dp),
                         modifier = Modifier.padding(horizontal = 35.dp)
                     ) {
                         Text(
-                            text = stringResource(id = R.string.enter),
-                            modifier = Modifier
-                                .width(200.dp),
+                            text = "Entrar",
+                            modifier = Modifier.width(200.dp),
                             textAlign = TextAlign.Center,
                             color = Color.Black,
                             fontSize = 25.sp
@@ -303,8 +232,7 @@ fun LoginScreen(controleGeral: NavController) {
                     ) {
                         Text(
                             text = "Esqueceu sua senha?",
-                            modifier = Modifier
-                                .fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth(),
                             textAlign = TextAlign.Center,
                             color = Color.LightGray,
                             fontSize = 20.sp,
@@ -331,8 +259,7 @@ fun LoginScreen(controleGeral: NavController) {
                 ) {
                     Text(
                         text = "Cadastre-se",
-                        modifier = Modifier
-                            .fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center,
                         color = Color.LightGray,
                         fontSize = 20.sp
@@ -341,13 +268,10 @@ fun LoginScreen(controleGeral: NavController) {
             }
         }
     }
-
 }
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-
     LoginScreen(rememberNavController())
-
 }
