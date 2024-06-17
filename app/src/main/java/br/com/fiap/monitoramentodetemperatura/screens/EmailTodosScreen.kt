@@ -42,7 +42,7 @@ fun EmailScreen(controleGeral: NavController) {
             TitleWithIcon()
 
             // Lista de emails
-            EmailList()
+            EmailList(controleGeral)
 
             // Botão "Novo"
             NewEmailButton(controleGeral)
@@ -70,7 +70,8 @@ fun SearchBar(navController: NavController) {
                 painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
                 contentDescription = "Voltar",
                 tint = Color.White,
-                modifier = Modifier.padding(end = 8.dp)
+                modifier = Modifier
+                    .padding(end = 8.dp)
                     .clickable {
                         // Navega de volta ao "menu" ou à tela anterior
                         navController.popBackStack()
@@ -124,7 +125,7 @@ fun TitleWithIcon() {
 }
 
 @Composable
-fun EmailList() {
+fun EmailList(navController: NavController) {
     val emails = listOf(
         Email("David Moura", "Challenge 1º semestre", "Conteúdo do email"),
         Email("Linkedin", "Recebeu Convite de...", "Conteúdo do email"),
@@ -139,13 +140,13 @@ fun EmailList() {
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(emails) { email ->
-            EmailItem(email)
+            EmailItem(email, navController)
         }
     }
 }
 
 @Composable
-fun EmailItem(email: Email) {
+fun EmailItem(email: Email, navController: NavController) {
     // Mapa que associa o nome do remetente ao ícone correspondente
     val iconesPorRemetente = mapOf(
         "David Moura" to R.drawable.twotone_work_outline_24,
@@ -161,7 +162,10 @@ fun EmailItem(email: Email) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp),
+            .padding(vertical = 4.dp)
+            .clickable {
+                navController.navigate("emailRecebido")
+            },
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(8.dp)

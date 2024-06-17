@@ -42,7 +42,7 @@ fun EmailScreen4(controleGeral: NavController) {
             TitleWithIcon4()
 
             // Lista de emails
-            EmailList4()
+            EmailList4(controleGeral)
 
             // Botão "Novo"
             NewEmailButton4(controleGeral)
@@ -124,7 +124,7 @@ fun TitleWithIcon4() {
 }
 
 @Composable
-fun EmailList4() {
+fun EmailList4(navController: NavController) {
     val emails = listOf(
         EmailItem4("David Moura", "Vaga Dev Junior Remote", "Conteúdo do email"),
         EmailItem4("Claúdio Maciel", "Vaga Dev Junior Remote", "Conteúdo do email"),
@@ -139,17 +139,20 @@ fun EmailList4() {
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(emails) { email ->
-            EmailItemComponent(email)
+            EmailItemComponent(email, navController)
         }
     }
 }
 
 @Composable
-fun EmailItemComponent(email: EmailItem4) {
+fun EmailItemComponent(email: EmailItem4, navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp),
+            .padding(vertical = 4.dp)
+            .clickable {
+                navController.navigate("emailRecebido")
+            },
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(8.dp)

@@ -77,7 +77,7 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
                 IconButton(
                     onClick = {
 
-                        controleGeral.navigate("menu")
+                        controleGeral.navigate("Categorias")
                     },
                     modifier = Modifier.size(30.dp)
                 ) {
@@ -128,7 +128,7 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
                 },
                 trailingIcon = {
                     IconButton(
-                        onClick = {  controleGeral.navigate("Emails")},
+                        onClick = { },
                         modifier = Modifier.size(30.dp)
                     ) {
                         Icon(
@@ -161,7 +161,7 @@ fun EmailRecebidoScreen(controleGeral: NavController) {
                 },
                 trailingIcon = {
                     IconButton(
-                        onClick = { controleGeral.navigate("Emails") },
+                        onClick = {  },
                         modifier = Modifier.size(30.dp)
                     ) {
                         Icon(

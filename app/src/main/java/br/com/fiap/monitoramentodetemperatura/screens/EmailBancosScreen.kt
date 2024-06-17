@@ -42,7 +42,7 @@ fun EmailScreen3(controleGeral: NavController) {
             TitleWithIcon3()
 
             // Lista de emails
-            EmailList3()
+            EmailList3(controleGeral)
 
             // Botão "Novo"
             NewEmailButton3(controleGeral)
@@ -70,7 +70,8 @@ fun SearchBar3(navController: NavController) {
                 painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
                 contentDescription = "Voltar",
                 tint = Color.White,
-                modifier = Modifier.padding(end = 8.dp)
+                modifier = Modifier
+                    .padding(end = 8.dp)
                     .clickable {
                         // Navega de volta ao "menu" ou à tela anterior
                         navController.popBackStack()
@@ -124,7 +125,7 @@ fun TitleWithIcon3() {
 }
 
 @Composable
-fun EmailList3() {
+fun EmailList3(navController: NavController) {
     val emails = listOf(
         EmailItem3("David Moura", "Pix Recebido no valor de ....", "Conteúdo do email"),
         EmailItem3("Claúdio Maciel", "Pix Recebido no valor de ....", "Conteúdo do email"),
@@ -139,17 +140,20 @@ fun EmailList3() {
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         items(emails) { email ->
-            EmailItemComponent(email)
+            EmailItemComponent(email, navController)
         }
     }
 }
 
 @Composable
-fun EmailItemComponent(email: EmailItem3) {
+fun EmailItemComponent(email: EmailItem3, navController: NavController) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp),
+            .padding(vertical = 4.dp)
+            .clickable {
+                navController.navigate("emailRecebido")
+            },
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(8.dp)

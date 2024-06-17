@@ -39,9 +39,13 @@ fun CategorizationScreen(navController: NavController) {
             placeholder = { Text("Pesquisar Categorias", color = Color.White) },
             leadingIcon = {
                 Icon(
-                    painter = painterResource(id = R.drawable.baseline_view_headline_24),
-                    contentDescription = "Pesquisar",
-                    tint = Color.White
+                    painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
+                    contentDescription = "Voltar",
+                    tint = Color.White,
+                    modifier = Modifier.clickable {
+                        // Navegar para a tela "menu"
+                        navController.navigate("menu")
+                    }
                 )
             },
             trailingIcon = {
@@ -208,6 +212,7 @@ fun CategorizationScreenPreview() {
     val navController = rememberNavController()
     NavHost(navController, startDestination = "categorias") {
         composable("categorias") { CategorizationScreen(navController) }
+        composable("menu") { MenuScreen(navController) }
         composable("todos") { EmailScreen(navController) }
         composable("social") { EmailScreen2(navController) }
         composable("trabalho") { EmailScreen1(navController) }
