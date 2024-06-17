@@ -13,16 +13,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.screens.CadastrarScreen
-import br.com.fiap.monitoramentodetemperatura.screens.CategorizationScreen
-import br.com.fiap.monitoramentodetemperatura.screens.EmailRecebidoScreen
 import br.com.fiap.monitoramentodetemperatura.screens.HistoricoScreen
 import br.com.fiap.monitoramentodetemperatura.screens.LoginScreen
 import br.com.fiap.monitoramentodetemperatura.screens.MenuScreen
 import br.com.fiap.monitoramentodetemperatura.screens.EmailScreen
-import br.com.fiap.monitoramentodetemperatura.screens.EmailScreen1
-import br.com.fiap.monitoramentodetemperatura.screens.EmailScreen2
-import br.com.fiap.monitoramentodetemperatura.screens.EmailScreen3
-import br.com.fiap.monitoramentodetemperatura.screens.EmailScreen4
 import br.com.fiap.monitoramentodetemperatura.screens.NovoEmailScreen
 import br.com.fiap.monitoramentodetemperatura.ui.theme.MonitoramentoDeTemperaturaTheme
 
@@ -49,35 +43,18 @@ class MainActivity : ComponentActivity() {
                         composable(route = "historico") {
                             HistoricoScreen(controleGeral)
                         }
-                        composable(route = "Categorias") {
-                            CategorizationScreen(controleGeral)
-                        }
-                        composable(route = "Todos") {
+                        composable(route = "Emails") {
                             EmailScreen(controleGeral)
-                        }
-                        composable(route = "Social") {
-                            EmailScreen2(controleGeral)
-                        }
-                        composable(route = "Trabalho") {
-                            EmailScreen1(controleGeral)
-                        }
-                        composable(route = "Bancos") {
-                            EmailScreen3(controleGeral)
-                        }
-                        composable(route = "Vagas_emp") {
-                            EmailScreen4(controleGeral)
                         }
                         composable(route="cadastre-se"){
 
-                            CadastrarScreen(controleGeral)
+                            CadastrarScreen(
+                                controleGeral
+                            )
                         }
 
                         composable(route= "novoEmail"){
                             NovoEmailScreen(controleGeral)
-                        }
-
-                        composable(route = "emailRecebido"){
-                            EmailRecebidoScreen(controleGeral)
                         }
 
                     }
