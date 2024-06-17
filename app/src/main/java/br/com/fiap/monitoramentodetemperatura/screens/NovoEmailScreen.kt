@@ -55,14 +55,6 @@ import androidx.navigation.compose.rememberNavController
 import br.com.fiap.monitoramentodetemperatura.R
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun NovoEmailScreenPreview() {
-
-    NovoEmailScreen(rememberNavController())
-
-}
-
 @Composable
 fun NovoEmailScreen(controleGeral: NavController){
 
@@ -102,8 +94,8 @@ fun NovoEmailScreen(controleGeral: NavController){
             IconButton(
                 onClick = {
                     vibratePhone(context)
-                    controleGeral.navigate("menu")
-                },
+                    controleGeral.navigate("Emails")
+                          },
                 modifier = Modifier.size(30.dp)
             ) {
                 Icon(
@@ -111,7 +103,7 @@ fun NovoEmailScreen(controleGeral: NavController){
                     contentDescription = "Ícone voltar",
                     modifier = Modifier.size(30.dp),
 
-                    )
+                )
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -234,57 +226,57 @@ fun NovoEmailScreen(controleGeral: NavController){
 
             Spacer(modifier = Modifier.height(28.dp))
 
-            Row(
-                modifier = Modifier.fillMaxWidth()
+        Row(
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Button(
+                onClick = { vibratePhone(context) },
+                colors = ButtonDefaults.buttonColors(Color(0xff343434)),
+                modifier = Modifier
+                    .width(160.dp)
+                    .height(50.dp)
+                    .offset(x = 25.dp)
             ) {
-                Button(
-                    onClick = { vibratePhone(context) },
-                    colors = ButtonDefaults.buttonColors(Color(0xff343434)),
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_settings_24),
+                    contentDescription = "Ícone de configurações",
                     modifier = Modifier
-                        .width(160.dp)
-                        .height(50.dp)
-                        .offset(x = 25.dp)
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.baseline_settings_24),
-                        contentDescription = "Ícone de configurações",
-                        modifier = Modifier
-                            .size(30.dp),
-                        tint = Color.LightGray
+                        .size(30.dp),
+                    tint = Color.LightGray
 
-                    )
-                    Text(
-                        text = "Opções",
-                        fontSize = 20.sp,
-                        color = Color.LightGray,
-                        modifier = Modifier.padding(start = 13.dp)
-                    )
-                }
-
-                Button(
-                    onClick = { vibratePhone(context) },
-                    colors = ButtonDefaults.buttonColors(Color(0xff343434)),
-                    modifier = Modifier
-                        .width(160.dp)
-                        .height(50.dp)
-                        .offset(x = 45.dp)
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.baseline_rocket_launch_24),
-                        contentDescription = "Ícone de enviar email",
-                        modifier = Modifier
-                            .size(30.dp),
-                        tint = Color.LightGray
-
-                    )
-                    Text(
-                        text = "Enviar",
-                        fontSize = 20.sp,
-                        color = Color.LightGray,
-                        modifier = Modifier.padding(start = 13.dp)
-                    )
-                }
+                )
+                Text(
+                    text = "Opções",
+                    fontSize = 20.sp,
+                    color = Color.LightGray,
+                    modifier = Modifier.padding(start = 13.dp)
+                )
             }
+
+            Button(
+                onClick = { vibratePhone(context) },
+                colors = ButtonDefaults.buttonColors(Color(0xff343434)),
+                modifier = Modifier
+                    .width(160.dp)
+                    .height(50.dp)
+                    .offset(x = 45.dp)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_rocket_launch_24),
+                    contentDescription = "Ícone de enviar email",
+                    modifier = Modifier
+                        .size(30.dp),
+                    tint = Color.LightGray
+
+                )
+                Text(
+                    text = "Enviar",
+                    fontSize = 20.sp,
+                    color = Color.LightGray,
+                    modifier = Modifier.padding(start = 13.dp)
+                )
+            }
+        }
 
 
 
@@ -296,5 +288,13 @@ fun NovoEmailScreen(controleGeral: NavController){
 
         }
     }
+
+}
+
+@Preview(showSystemUi = true, showBackground = true)
+@Composable
+fun NovoEmailScreenPreview() {
+
+    NovoEmailScreen(rememberNavController())
 
 }
