@@ -250,7 +250,7 @@ fun LoginScreen(controleGeral: NavController) {
             ) {
                 Button(
                     onClick = {
-                        controleGeral.navigate("cadastrar")
+                        controleGeral.navigate("cadastre-se")
                     },
                     colors = ButtonDefaults.buttonColors(Color.Transparent),
                     shape = RoundedCornerShape(20.dp),

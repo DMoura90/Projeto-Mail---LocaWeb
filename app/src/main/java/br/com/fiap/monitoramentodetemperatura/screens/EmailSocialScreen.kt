@@ -149,11 +149,11 @@ fun EmailList2(navController: NavController) {
 fun EmailItem2(email: Email, navController: NavController) {
     // Mapa que associa o nome do remetente ao ícone correspondente
     val iconesPorRemetente = mapOf(
-        "David Moura" to R.drawable.twotone_work_outline_24,
+        "David Moura" to R.drawable.twotone_group_24,
         "Claúdio Maciel" to R.drawable.twotone_group_24,
         "Rodrigo Inacio" to R.drawable.twotone_group_24,
         "Thomas Jefferson" to R.drawable.twotone_group_24,
-        "5º Membro (Oculto)" to R.drawable.baseline_person_24
+        "5º Membro (Oculto)" to R.drawable.twotone_group_24
     )
 
     // Obtém o ícone correspondente ao remetente ou usa um ícone padrão
