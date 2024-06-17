@@ -94,19 +94,19 @@ fun NovoEmailScreen(controleGeral: NavController){
             IconButton(
                 onClick = {
                     vibratePhone(context)
-                    controleGeral.navigate("Emails")
+                    controleGeral.navigate("menu")
                           },
                 modifier = Modifier.size(30.dp)
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.keyboard_return_24),
+                    painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
                     contentDescription = "Ícone voltar",
                     modifier = Modifier.size(30.dp),
 
                 )
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(15.dp))
 
             OutlinedTextField(
                 value = De,
@@ -210,7 +210,7 @@ fun NovoEmailScreen(controleGeral: NavController){
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(400.dp),
+                    .height(350.dp),
                 shape = RoundedCornerShape(30.dp),
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = Color.LightGray,
