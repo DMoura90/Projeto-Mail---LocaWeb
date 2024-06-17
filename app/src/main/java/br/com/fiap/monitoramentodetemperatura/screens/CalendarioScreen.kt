@@ -6,6 +6,7 @@ import android.provider.CalendarContract
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -70,7 +71,7 @@ fun AgendarEventoScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Linha com botão de ícone e texto "Voltar Menu"
+        // Linha com botão de ícone e texto "Voltar Menu" clicável
         Row(
             modifier = Modifier
                 .padding(16.dp)
@@ -78,17 +79,20 @@ fun AgendarEventoScreen(navController: NavController) {
                 .width(200.dp)
                 .border(width = 2.dp, color = Color.LightGray, shape = RoundedCornerShape(32.dp))
                 .background(Color.Transparent, shape = RoundedCornerShape(32.dp))
+                .clickable {
+                    navController.navigate("menu") {
+                        popUpTo("menu") { inclusive = true }
+                    }
+                }
                 .padding(horizontal = 8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = { navController.navigate("menu") }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
-                    contentDescription = "Ícone voltar",
-                    tint = Color.White,
-                    modifier = Modifier.size(24.dp)
-                )
-            }
+            Icon(
+                painter = painterResource(id = R.drawable.twotone_keyboard_return_24),
+                contentDescription = "Ícone voltar",
+                tint = Color.White,
+                modifier = Modifier.size(24.dp)
+            )
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Voltar Menu", color = Color.White, fontSize = 16.sp)
         }
