@@ -1,4 +1,4 @@
-package br.com.fiap.monitoramentodetemperatura
+package br.com.fiap.LocaWeb
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,8 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import br.com.fiap.monitoramentodetemperatura.screens.*
-import br.com.fiap.monitoramentodetemperatura.ui.theme.MonitoramentoDeTemperaturaTheme
+import br.com.fiap.LocaWeb.screens.*
+import br.com.fiap.LocaWeb.ui.theme.MonitoramentoDeTemperaturaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

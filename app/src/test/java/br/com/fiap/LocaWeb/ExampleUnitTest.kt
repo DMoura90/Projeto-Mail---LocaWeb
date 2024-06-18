@@ -1,4 +1,4 @@
-package br.com.fiap.monitoramentodetemperatura
+package br.com.fiap.LocaWeb
 
 import org.junit.Test
 

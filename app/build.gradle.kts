@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "br.com.fiap.monitoramentodetemperatura"
+    namespace = "br.com.fiap.LocaWeb"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "br.com.fiap.monitoramentodetemperatura"
+        applicationId = "br.com.fiap.LocaWeb"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

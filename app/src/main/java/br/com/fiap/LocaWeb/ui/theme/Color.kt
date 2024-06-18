@@ -1,4 +1,4 @@
-package br.com.fiap.monitoramentodetemperatura.ui.theme
+package br.com.fiap.LocaWeb.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

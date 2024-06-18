@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MonitoramentoDeTemperatura"
+rootProject.name = "LocaWeb"
 include(":app")
  
